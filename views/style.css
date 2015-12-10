@@ -1,11 +1,4 @@
-% rebase('skin')
-
-% if message != '':
-Result: <strong>{{message}}</strong>
-% end
-
-<style>
-    body {
+body {
     background-color: white;
     background-size: cover;
     font-family: Work Sans;
@@ -63,17 +56,3 @@ Result: <strong>{{message}}</strong>
 .login-block button:hover {
     background: #ccc;
 }
-
-    
-</style>
-
-<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
-
-<div class="login-block">
-    <h1>Login</h1>
-    <form action="/auth" method="post">
-        <input type="text" value="{{get('username', '')}}" placeholder="Username" id="username" name="username"/>
-        <input type="password" value="{{get('password', '')}}" placeholder="Password" id="password" name="password"/>
-        <button type="submit">Submit</button>
-    </form>
-</div>
