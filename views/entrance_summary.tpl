@@ -180,7 +180,7 @@
 
 <table border="0">
     <td>
-        <div id="performance" style="width: 400px; height: 400px"></div>
+        <div id="performance" style="width: 400px; height: 400px; right:0px;"></div>
     </td>
     <td>
         <div id="mean_time_to_resolve" style="width: 400px; height: 400px"></div>
