@@ -1,9 +1,5 @@
 % rebase('skin')
 
-% if message != '':
-Result: <strong>{{message}}</strong>
-% end
-
 <style>
     body {
     background-color: white;
@@ -37,10 +33,10 @@ Result: <strong>{{message}}</strong>
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
     font-size: 14px;
     font-family: Work Sans;
-    padding: 0 20px 0 50px;
+    padding: 0 20px 0 10px;
     outline: none;
 }
 
@@ -76,4 +72,7 @@ Result: <strong>{{message}}</strong>
         <input type="password" value="{{get('password', '')}}" placeholder="Password" id="password" name="password"/>
         <button type="submit">Submit</button>
     </form>
+% if message != '':
+Result: <strong>{{message}}</strong>
+% end
 </div>
