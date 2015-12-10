@@ -1,3 +1,4 @@
+<!--
 % result = "['Date', 'Created', 'Resolved', 'Still open'],\n"
 % for day in sorted(statistics):
 %   if statistics[day]:
@@ -83,6 +84,7 @@
 """ % result
 
 % rebase('skin', meta_refresh=300)
+-->
 
 <p>
     % username = get('username', '')
