@@ -1,4 +1,13 @@
-<!--
+<!----------BOOTSTRAP -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700' rel='stylesheet' type='text/css'>
+
 % result = "['Date', 'Created', 'Resolved', 'Still open'],\n"
 % for day in sorted(statistics):
 %   if statistics[day]:
@@ -84,7 +93,7 @@
 """ % result
 
 % rebase('skin', meta_refresh=300)
--->
+
 
 <p>
     % username = get('username', '')
@@ -93,34 +102,33 @@
     % end
 </p>
 
-<p><a href="http://localhost:8080/newticket">Create new ticket</a></p>
 
-<table border="1">
+<a href="http://localhost:8080/newticket"><button class="btn">Create new ticket</button></a>
+
+<table class="tabela1">
     <tr>
-        <td align="center"><a href="/detail/dir?o={{username_id}}">DIR</a></td>
-        <td align="center"><a href="/detail/dir-inbox?o={{username_id}}">DIR-INBOX</a></td>
-        <td align="center">DITIC Kanban Board</td>
-    </tr>
-    <tr>
+        <td><a href="/detail/dir?o={{username_id}}"><strong>DIR</strong></a></td>
         % # DIR
         % sum = 0
         % # we need this code because DIR can have tickets all along several status
         % for status in summary['dir']:
         %   sum += summary['dir'][status]
         % end
-        <td align="center" valign="top">{{sum}}</td>
-
+        <td valign="top">{{sum}}</td>
+    </tr>
+    <tr>
+        <td><a href="/detail/dir-inbox?o={{username_id}}"><strong>DIR-INBOX</strong></a></td>
         % # DIR-INBOX
         % sum = 0
         % # we need this code because DIR can have tickets all along several status
         % for status in summary['dir-inbox']:
         %   sum += summary['dir-inbox'][status]
         % end
-        <td align="center" valign="top">
+        <td valign="top">
             % urgent = get('urgent', '')
             % if urgent:
-            <table border="1">
-                <td align="center">
+            <table>
+                <td>
                     URGENT<br>
                     <br>
                     % for ticket_info in urgent:
@@ -140,16 +148,16 @@
             % end
             {{sum}}
         </td>
-        <td>
-            <table border="1">
-                <tr>
-                    <td align="center">user</td>
-                    <td align="center">IN</td>
-                    <td align="center">ACTIVE</td>
-                    <td align="center">STALLED</td>
-
-                    <td align="center">DONE</td>
-                </tr>
+    </tr>
+</table>
+<table class="tabela2">
+    <tr id="cabecalho">
+        <td><strong>USER</strong></td>
+        <td><strong>IN</strong></td>
+        <td><strong>ACTIVE</strong></td>
+        <td><strong>STALLED</strong></td>
+        <td><strong>DONE<strong></td>
+    </tr>
                 % totals = { status: 0 for status in ['new', 'open', 'stalled', 'resolved']}
                 % for email in sorted(summary):
                 %   if email.startswith('dir'):
@@ -159,32 +167,90 @@
                 %   if  email != 'unknown':
                 %       user = alias[email]
                 %   end
-                <tr>
+    <tr>
                     <td><a href="/detail/{{email}}?o={{username_id}}">{{user}}</a></td>
                     %   for status in ['new', 'open', 'stalled', 'resolved']:
                     <td>{{summary[email][status]}}</td>
                     %       totals[status] += summary[email][status]
                     % end
-                </tr>
+    </tr>
                 % end
-                <tr>
+    <tr>
                     <td><strong>Totais</strong></td>
                     %   for status in ['new', 'open', 'stalled', 'resolved']:
                     <td><strong>{{totals[status]}}</strong></td>
                     % end
-                </tr>
-            </table>
-        </td>
     </tr>
 </table>
+<div id="stats">
+        <div class="col-md-6" id="performance" style="width: 500px; height: 500px"></div>
+        <div class="col-md-6" id="mean_time_to_resolve" style="width: 500px; height: 500px"></div>
+</div>
 
-<table border="0">
-    <td>
-        <div id="performance" style="width: 400px; height: 400px"></div>
-    </td>
-    <td>
-        <div id="mean_time_to_resolve" style="width: 400px; height: 400px"></div>
-    </td>
-</table>
+<style>
+
+#stats{
+	display: inline-block;
+	padding-left:40px;
+}
 
 
+tr, td {
+    border-bottom: 1px solid #000;
+}
+tr:hover {
+    background-color: #f5f5f5;
+}
+.tabela1 {
+    background-color: white;
+    font-family: 'Work Sans';
+font-size: 18px;
+    width: 63%;
+margin-bottom: 30px;
+color: black;
+
+}
+
+.tabela1 a, .tabela2 a{
+text-decoration: none;
+color:black;
+}
+.tabela2 {
+margin-top: 50px;
+font-size: 18px;
+    background-color: white;
+    font-family: 'Work Sans';
+    width: 100%;
+margin-bottom: 50px;
+color:black;
+}
+#cabecalho{
+background:#000;
+color:white;
+}
+
+.btn {
+    width: 100%;
+    height: 40px;
+    background: #000;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #000;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Work Sans;
+    outline: none;
+    cursor: pointer;
+margin-bottom: 30px; 
+margin-top: 30px;
+}
+
+.btn:hover {
+    background: #666666;
+color:white;
+}
+
+
+</style>
