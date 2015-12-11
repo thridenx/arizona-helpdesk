@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 
 <div class="ticket-block">
@@ -91,3 +92,19 @@ body {
 }
  
 </style>
+=======
+<?php 
+
+
+?>
+
+
+    <form action="/createticket" method="post">
+        Requestor:
+        <input name="requestor" type="text" value="{{get('requestor', '')}}" />
+        <br> Subject:
+        <input name="subject" type="text" value="{{get('subject', '')}}" />
+        <br>
+        <input value="Submit" type="submit" />
+    </form>
+>>>>>>> Stashed changes

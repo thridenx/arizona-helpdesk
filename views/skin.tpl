@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,6 +26,10 @@
 <style type="text/css">
     /*				HEADER */
     
+    textarea:focus, input:focus{
+    outline: 0;
+}
+    
     body {
         padding:0vh 5vw;
     }
@@ -50,11 +54,46 @@
         text-decoration: none;
     }
 
-    header .user {
+    header .user,  header .user:hover, header .user:active, header .users:visited {
         font-weight: 500;
-        
         font-size: 12pt;
+        text-align: right;
+        font-weight: 400;
+        margin-top: 2vh;
     }
+    
+    header form {
+	margin-top: 1vh;
+        border-radius: 75px;
+        font-size: 12;
+        font-family: 'Work Sans', sans-serif;
+        width: 100%;
+        padding: .6em .9em;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: none;
+        border: 0;
+        color: #656565;
+    }
+    
+    header form #search-icon {
+        
+        top:2px;
+        left:15px;
+    }
+    
+    header form #search-input {
+        background-color: transparent;
+        border: 0px solid;
+        color: #CCC;
+    }
+    
+    header form #search-input:focus {
+        border-bottom: 2px solid black;
+    }
+    
+    
     
     /*					*/
 </style>
@@ -63,8 +102,12 @@
 <body>
     % username_id = get('username_id', '')
     <header class="row">
-        <a class="col-xs-4 pull-left" href="/?o={{username_id}}">Helpdesk UC</a>
-        <a class="user col-xs-2 pull-right" href="/?o={{username_id}}">
+        <a class="col-xs-4" href="/?o={{username_id}}">Helpdesk UC</a>
+        <form class="col-xs-3 row" action="/search?o={{get('username_id', '')}}" method="post">
+            <span id="search-icon" class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <input id="search-input" class="col-xs-10 pull-right" name="search" type="search" placeholder="Pesquisar tickets...">
+        </form>
+        <a class="user col-xs-2 pull-right" href="/detail/dir-inbox?o=777">
         % username = get('username', '')
         % if username:
         {{username}}

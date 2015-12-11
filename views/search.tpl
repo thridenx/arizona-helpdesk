@@ -1,6 +1,4 @@
-<form action="/search?o={{get('username_id', '')}}" method="post">
-    Search: <input name="search" type="search">
-</form>
+
 
 % include('summary')
 % max_len = 80
