@@ -1,13 +1,23 @@
-<form action="/search?o={{get('username_id', '')}}" method="post">
-    Search: <input name="search" type="search">
-</form>
-
-% include('summary')
+% rebase('skin')
 % max_len = 30
 
-<p>
-    <strong>Detail of email:</strong> {{email}} (<a href="/closed/{{email}}?o={{username_id}}">show closed tickets</a>)
-</p>
+<style>
+    /*              SEARCH RESULTS              */
+    
+    .detail-title .head {
+        margin-top: 14pt;
+        margin-bottom: 14pt;
+        text-align: center;
+        font-size: 14pt;
+    }    
+</style>
+
+
+
+<div class="row detail-title">
+    <p class="head">Kanban Board  for <span class="italic">{{email}} </span></p>
+</div>
+
 
 % action_result = get('action_result', '')
 % if action_result:
@@ -105,7 +115,4 @@ Subject: {{ticket['subject']}}" href="http://localhost/rt/Ticket/Display.html?id
         % end
     </tr>
 </table>
-
-<p>
-    Time to execute: {{time_spent}}
-</p>
+(<a href="/closed/{{email}}?o={{username_id}}">show closed tickets</a>)
