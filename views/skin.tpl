@@ -10,10 +10,11 @@
 <html lang="en">
 
 <head>
-    % meta_refresh = get('meta_refresh', 0)
-    {{!'<meta http-equiv="refresh" content="%s">' % meta_refresh if meta_refresh else ''}}
+    % meta_refresh = get('meta_refresh', 0) {{!'
+    <meta http-equiv="refresh" content="%s">' % meta_refresh if meta_refresh else ''}}
     <meta charset="UTF-8">
     <title>{{title}}</title>
+<<<<<<< Updated upstream
     % graph_script = get('graph_script', '') 
     % if graph_script: 
     {{!graph_script}} 
@@ -119,10 +120,29 @@
     
     /*					*/
 </style>
+=======
+    % graph_script = get('graph_script', '') % if graph_script: {{!graph_script}} % end
+>>>>>>> Stashed changes
 </head>
 
 <body>
     % username_id = get('username_id', '')
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+    <header class="row">
+        <a class="col-xs-4 pull-left" href="/?o={{username_id}}">Helpdesk UC</a>
+        <a class="user col-xs-2 pull-right" href="/?o={{username_id}}">
+        % username = get('username', '')
+        % if username:
+        {{username}}
+        % end
+        </a>
+    </header>
+    {{!base}}
+=======
+    <a href="/?o={{username_id}}">home</a> {{!base}}
+>>>>>>> Stashed changes
+=======
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header col-xs-3">
@@ -153,6 +173,7 @@
 </nav>
     <div class="container">
         {{!base}}
+>>>>>>> master
 </body>
 
 </html>
