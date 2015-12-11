@@ -79,7 +79,3 @@
     </tr>
     % end
 </table>
-
-<p>
-    Time to execute: {{time_spent}}
-</p>

@@ -1,5 +1,5 @@
-<<<<<<< Updated upstream
-<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+% rebase('skin')
+
 
 <div class="ticket-block">
     <h1>Create a New Ticket</h1>
@@ -16,7 +16,6 @@
 body {
     background-color: white;
     background-size: cover;
-    font-family: Work Sans;
 }
 
 .ticket-block {
@@ -54,7 +53,6 @@ body {
     border: 1px solid #ccc;
     margin-bottom: 20px;
     font-size: 14px;
-    font-family: Work Sans;
     padding: 0 10px 0 10px;
     outline: none;
     margin-top: 10px;
@@ -67,7 +65,6 @@ body {
     border: 1px solid #ccc;
     margin-bottom: 20px;
     font-size: 14px;
-    font-family: Work Sans;
     outline: none;
 }
     
@@ -82,7 +79,6 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 14px;
-    font-family: Work Sans;
     outline: none;
     cursor: pointer;
 }
@@ -92,19 +88,3 @@ body {
 }
  
 </style>
-=======
-<?php 
-
-
-?>
-
-
-    <form action="/createticket" method="post">
-        Requestor:
-        <input name="requestor" type="text" value="{{get('requestor', '')}}" />
-        <br> Subject:
-        <input name="subject" type="text" value="{{get('subject', '')}}" />
-        <br>
-        <input value="Submit" type="submit" />
-    </form>
->>>>>>> Stashed changes
