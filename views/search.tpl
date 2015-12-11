@@ -1,3 +1,5 @@
+
+
 % rebase('skin')
 % max_len = 80
 
@@ -6,13 +8,9 @@
     
     .search-title .head {
         margin-top: 28pt;
-        margin-bottom: 28pt;
         text-align: center;
         font-size: 14pt;
-    }
-    
-    
-    
+    }    
 </style>
 
 

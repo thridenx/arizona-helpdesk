@@ -112,6 +112,9 @@
         color: #CCC;
     }
     
+    .navbar-right {
+        margin-top: 1.5vh;
+    }
     
     
     /*					*/
@@ -120,7 +123,6 @@
 
 <body>
     % username_id = get('username_id', '')
-   
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header col-xs-3">
@@ -130,14 +132,20 @@
             <span id="search-icon" class="glyphicon glyphicon-search" aria-hidden="true"></span>
             <input id="search-input" class="col-xs-11 pull-right" name="search" type="search" placeholder="Pesquisar tickets...">
         </form>
-        <a class="nav navbar-nav navbar-right user col-xs-2" href="/detail/dir-inbox?o=777">
-            <span id="search-icon" class="glyphicon glyphicon-user" aria-hidden="true"> </span>
-        % username = get('username', '')
-        % if username:
-        {{user}}
-        % end
-      </a>
-
+        <div class="nav navbar-nav navbar-right col-xs-2 row">
+            <span id="search-icon pull-right" class="glyphicon glyphicon-user" aria-hidden="true"> </span>
+            <a class="user" href="/detail/dir-inbox?o=777">
+            % username = get('username', '')
+            % if username:
+            {{username}}
+            % end
+            </a>
+            <br>
+            <a class="logout">
+            logout
+            </a>
+            
+        </div>
     </div>
     <!-- /.navbar-collapse -->
     </div>
