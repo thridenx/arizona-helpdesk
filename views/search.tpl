@@ -1,12 +1,26 @@
-
-
-% include('summary')
+% rebase('skin')
 % max_len = 80
 
-<p>
-    <strong>Searching for (last 90 days): </strong><i>{{email}}</i><br>
-    <strong># Tickets:</strong> <i>{{number_tickets}}</i>
-</p>
+<style>
+    /*              SEARCH RESULTS              */
+    
+    .search-title .head {
+        margin-top: 28pt;
+        margin-bottom: 28pt;
+        text-align: center;
+        font-size: 14pt;
+    }
+    
+    
+    
+</style>
+
+
+
+<div class="row search-title">
+    <p class="head">Your search for <span class="italic">{{email}} </span>found <span class="underline">{{number_tickets}}</span> results:</p>
+</div>
+
 
 % action_result = get('action_result', '')
 % if action_result:
@@ -26,27 +40,27 @@
            % for ticket in sorted(tickets[priority], reverse=True):
                 <tr>
                     <td>
-                        <a href="http://localhost/rt/Ticket/Display.html?id={{ticket_info['id']}}">
+                        <a href="http://localhost:8080/detailofticket/{{ticket['id']}}">
                             {{ticket['id']}}
                         </a>
                     </td>
                     <td>
-                        <a href="http://localhost/rt/Ticket/Display.html?id={{ticket_info['id']}}">
+                        <a href="http://localhost:8080/detailofticket/{{ticket['id']}}">
                             {{ticket['status']}}
                         </a>
                     </td>
                     <td>
-                        <a href="http://localhost/rt/Ticket/Display.html?id={{ticket_info['id']}}">
+                        <a href="http://localhost:8080/detailofticket/{{ticket['id']}}">
                             {{ticket['cf.{servico}']}}
                         </a>
                     </td>
                     <td>
-                        <a href="http://localhost/rt/Ticket/Display.html?id={{ticket_info['id']}}">
+                        <a href="http://localhost:8080/detailofticket/{{ticket['id']}}">
                             {{ticket['requestors']}}
                         </a>
                     </td>
                     <td>
-                        <a href="http://localhost/rt/Ticket/Display.html?id={{ticket_info['id']}}">
+                        <a href="http://localhost:8080/detailofticket/{{ticket['id']}}">
                             % subject = ticket['subject']
                             % if len(ticket['subject']) > max_len:
                             %   subject = ticket['subject'][:max_len]+'...'
@@ -55,7 +69,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="http://localhost/rt/Ticket/Display.html?id={{ticket_info['id']}}">
+                        <a href="http://localhost:8080/detailofticket/{{ticket['id']}}">
                             Created: {{ticket['created']}}<br>
                             Last Update: {{ticket['lastupdated']}}
                         </a>

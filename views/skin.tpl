@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
  <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +28,8 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700' rel='stylesheet' type='text/css'>
-
+<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
 <!----------CSS -->
 <style type="text/css">
     /*				HEADER */
@@ -30,67 +38,78 @@
     outline: 0;
 }
     
-    body {
+    .container {
         padding:0vh 5vw;
+        font-size: 12pt;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        line-height: 14pt;
     }
     
-    header {
-        padding:0 0;!important
+    .underline {
+        text-decoration: underline;
+    }
+    
+    .italic {
+        font-style:italic;
+    }
+    
+    nav {
+        
+        font-family: 'Lato', sans-serif;
         width: 100%;
-        height: 7vh;
+        height: 10vh;
         display: block;
-        background-color: white;
-        -webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.2);
-        -moz-box-shadow:    0px 5px 5px 0px rgba(50, 50, 50, 0.2);
-        box-shadow:         0px 5px 5px 0px rgba(50, 50, 50, 0.2);
+        border-radius: 0px;
     }
     
-    header a, header a:hover, header a:active, header a:visited {
+    nav .container-fluid {
+        background-color: black;
+         padding-bottom: 1.5vh;!important
+    }
+
+    nav .container-fluid .navbar-header .navbar-brand, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:visited {
+        background-color: black;
         margin-top: 1vh;
-        color: black;
-        font-size: 18pt;
-        font-family: 'Work Sans', sans-serif;
+        color: white;
+        font-size: 16pt;
         font-weight: 500;
         text-decoration: none;
     }
 
-    header .user,  header .user:hover, header .user:active, header .users:visited {
+
+    nav .user,  header .user:hover, header .user:active, header .user:visited {
+        color: white;
         font-weight: 500;
         font-size: 12pt;
         text-align: right;
         font-weight: 400;
-        margin-top: 2vh;
+        margin-top: 3vh;
     }
     
-    header form {
-	margin-top: 1vh;
-        border-radius: 75px;
+    nav .container-fluid form {
+        background-color: white;
+	   margin-top: 2vh;
         font-size: 12;
-        font-family: 'Work Sans', sans-serif;
-        width: 100%;
         padding: .6em .9em;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         outline: none;
         border: 0;
-        color: #656565;
+        color: #000;
     }
     
-    header form #search-icon {
-        
+    nav .container-fluid form #search-icon {
+        color:black;
         top:2px;
-        left:15px;
+        left:30px;
     }
     
-    header form #search-input {
+    nav .container-fluid form #search-input {
         background-color: transparent;
         border: 0px solid;
         color: #CCC;
-    }
-    
-    header form #search-input:focus {
-        border-bottom: 2px solid black;
     }
     
     
@@ -101,20 +120,31 @@
 
 <body>
     % username_id = get('username_id', '')
-    <header class="row">
-        <a class="col-xs-4" href="/?o={{username_id}}">Helpdesk UC</a>
-        <form class="col-xs-3 row" action="/search?o={{get('username_id', '')}}" method="post">
+   
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header col-xs-3">
+            <a class="navbar-brand " href="/?o={{username_id}}">Helpdesk UC</a>
+        </div>
+        <form class="col-xs-7 row" action="/search?o={{get('username_id', '')}}" method="post">
             <span id="search-icon" class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            <input id="search-input" class="col-xs-10 pull-right" name="search" type="search" placeholder="Pesquisar tickets...">
+            <input id="search-input" class="col-xs-11 pull-right" name="search" type="search" placeholder="Pesquisar tickets...">
         </form>
-        <a class="user col-xs-2 pull-right" href="/detail/dir-inbox?o=777">
+        <a class="nav navbar-nav navbar-right user col-xs-2" href="/detail/dir-inbox?o=777">
+            <span id="search-icon" class="glyphicon glyphicon-user" aria-hidden="true"> </span>
         % username = get('username', '')
         % if username:
-        {{username}}
+        {{user}}
         % end
-        </a>
-    </header>
-    {{!base}}
+      </a>
+
+    </div>
+    <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+    <div class="container">
+        {{!base}}
 </body>
 
 </html>
