@@ -2,7 +2,6 @@
 <<<<<<< HEAD
 Software Helpdesk UC
 <<<<<<< HEAD
-coninha
 =======
 
 >>>>>>> master
